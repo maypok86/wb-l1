@@ -32,7 +32,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	a := make([]int, 10)
-	for i, _ := range a {
+	for i := range a {
 		a[i] = rand.Int()
 	}
 
