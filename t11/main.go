@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+/*
+Реализовать пересечение двух неупорядоченных множеств.
+*/
+
 func intersect(a, b []int) []int {
 	aSet := make(map[int]struct{})
 	bSet := make(map[int]struct{})
@@ -13,7 +17,7 @@ func intersect(a, b []int) []int {
 		bSet[x] = struct{}{}
 	}
 
-	out := make([]int, 0, len(aSet)+len(bSet))
+	var out []int
 	for x := range aSet {
 		_, ok := bSet[x]
 		if ok {

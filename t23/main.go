@@ -6,7 +6,11 @@ import (
 	"time"
 )
 
-func testDeleteByIndex(deleteByIndex func([]int, int) []int, slice []int, index int) {
+/*
+Удалить i-ый элемент из слайса.
+*/
+
+func testDeleteByIndex(slice []int, index int, deleteByIndex func([]int, int) []int) {
 	fmt.Println(deleteByIndex(slice, index))
 }
 
@@ -19,14 +23,14 @@ func main() {
 	fmt.Println(numbers)
 	fmt.Printf("Index: %d\n", index)
 
-	testDeleteByIndex(func(slice []int, index int) []int {
+	testDeleteByIndex(copiedNumbers, index, func(slice []int, index int) []int {
 		return append(slice[:index], slice[index+1:]...)
-	}, copiedNumbers, index)
+	})
 
-	testDeleteByIndex(func(slice []int, index int) []int {
+	testDeleteByIndex(numbers, index, func(slice []int, index int) []int {
 		for i := index; i < len(slice)-1; i++ {
 			slice[i] = slice[i+1]
 		}
 		return slice[:len(slice)-1]
-	}, numbers, index)
+	})
 }

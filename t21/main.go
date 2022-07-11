@@ -5,6 +5,10 @@ import (
 	"strings"
 )
 
+/*
+Реализовать паттерн «адаптер» на любом примере.
+*/
+
 type Reverser interface {
 	ReverseString(string) string
 }

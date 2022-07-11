@@ -8,8 +8,12 @@ import (
 )
 
 /*
+Реализовать быструю сортировку массива (quicksort) встроенными методами языка.
+*/
+
+/*
 Да кто эти ваши встроенные методы языка?..
-Это штуки из пакета sort или нужно прям алгос написать?
+Надо использовать сортировку из пакета sort или нужно просто алгоритм написать?
 */
 
 func generateRandomSlice(size int) []int {
@@ -86,6 +90,6 @@ func main() {
 	QuicksortIntSlice(slice1)
 	slice3 := make([]int, len(slice2))
 	copy(slice3, slice2)
-	QuicksortIntSlice(slice2)
+	QuicksortInts(slice2)
 	QuicksortOwn(slice3)
 }

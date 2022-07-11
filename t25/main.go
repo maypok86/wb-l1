@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+/*
+Реализовать собственную функцию sleep.
+*/
+
 func Sleep1(t time.Duration) {
 	// похожим образом можно сделать с помощью контекста, но, на мой взгляд, это лишнее
 	<-time.After(t) // aka <-time.NewTimer(t).C

@@ -7,7 +7,13 @@ import (
 	"time"
 )
 
+/*
+Реализовать конкурентную запись данных в map.
+*/
+
 type Map struct {
+	// можно было использовать sync.RWMutex, но в данном случае он проиграет
+	// sync.Mutex по скорости
 	mutex sync.Mutex
 	data  map[int]int
 }

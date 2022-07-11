@@ -11,6 +11,12 @@ import (
 	"time"
 )
 
+/*
+Реализовать постоянную запись данных в канал (главный поток).
+Реализовать набор из N воркеров, которые читают произвольные данные из канала и выводят в stdout.
+Необходима возможность выбора количества воркеров при старте.
+*/
+
 func main() {
 	if len(os.Args) == 1 {
 		fmt.Println("Usage: go run t4/main.go <number of workers>")
@@ -24,7 +30,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	var wg sync.WaitGroup
-	data := make(chan int)
+	data := make(chan int, numberOfWorkers) // можно добавить какой-нибудь буфер, например, numberOfWorkers
 
 	wg.Add(numberOfWorkers)
 	for i := 0; i < numberOfWorkers; i++ {

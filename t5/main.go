@@ -12,6 +12,12 @@ import (
 	"time"
 )
 
+/*
+Разработать программу, которая будет последовательно отправлять значения в канал,
+а с другой стороны канала — читать.
+По истечению N секунд программа должна завершаться.
+*/
+
 func worker(ctx context.Context, wg *sync.WaitGroup, id int, data chan int) {
 	defer wg.Done()
 
@@ -40,6 +46,7 @@ func main() {
 
 	var wg sync.WaitGroup
 	data := make(chan int)
+	// для ограничения времени исполнения используем context
 	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(timeout)*time.Second)
 
 	const numberOfWorkers = 5

@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+/*
+Дана структура Human (с произвольным набором полей и методов).
+Реализовать встраивание методов в структуре Action от родительской структуры Human (аналог наследования).
+*/
+
 type Human struct {
 	Name    string
 	Surname string
@@ -14,7 +19,6 @@ func (h Human) PrintInfo() {
 
 type Action struct {
 	Human
-	Name string
 }
 
 func main() {
@@ -24,9 +28,9 @@ func main() {
 	}
 	a := Action{
 		Human: h,
-		Name:  "Petya",
 	}
 	h.PrintInfo()
 	a.PrintInfo()
+	a.Human.PrintInfo()
 	fmt.Println(a.Name)
 }
